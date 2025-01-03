@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Under Twenty</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+    h1 {
+      color: #333;
+    }
+    iframe {
+      border: none;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div id="ad-container"></div>
+
+  <script>
+    // List of Amazon ad URLs (replace with your ad links)
+    const amazonAds = [
+      "https://amzn.to/4a4GNWC", // Day 1 ad
+      "https://amzn.to/4j4DfrE", // Day 2 ad
+      "https://amzn.to/400RHYP", // Day 3 ad
+      "https://amzn.to/3BJ4PtH", // Day 4 ad
+    ];
+
+    // Calculate the index based on the day of the month
+    const today = new Date();
+    const adIndex = today.getDate() % amazonAds.length;
+
+    // Embed the selected ad
+    const adContainer = document.getElementById('ad-container');
+    const iframe = document.createElement('iframe');
+    iframe.src = amazonAds[adIndex];
+    iframe.width = "100%";
+    iframe.height = "500px";
+    adContainer.appendChild(iframe);
+  </script>
+</body>
+</html>
